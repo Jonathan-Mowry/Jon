@@ -1,5 +1,4 @@
 #Jon Mowry
-#https://scientificallysound.org/2016/10/17/python-print3/
 import pickle
 import os as sys
 
