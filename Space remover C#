@@ -1,0 +1,51 @@
+///////////////////////////////////////////////////////////////////////////////////////////////
+// This fuction removes spaces before and after sentences while leaving spaces between words //
+///////////////////////////////////////////////////////////////////////////////////////////////
+private string spaceChecker()
+{
+    //use 'name' as the string you want to remove extra spaces | finalName is used for the final sentence
+    string name = "", finalName = "";
+
+    //nameBroken breaks the sentence into an array
+    char[] nameBroken = name.ToCharArray();
+
+    //length gets the length of the string 
+    //counter and lengthArray used to make sure we don't blow out array
+    int length = name.Length, counter = 0, lengthArray = nameBroken.Length;
+    bool flag = false;
+
+    foreach (char ch in nameBroken)
+    {
+        if (Char.IsWhiteSpace(ch))
+        {
+            if (counter + 1 != lengthArray)
+            {
+                char ch_1 = nameBroken[counter + 1];
+                if (!Char.IsWhiteSpace(ch_1) && counter != 0)
+                {
+                    char ch_2 = nameBroken[counter - 1];
+
+                    if (!Char.IsWhiteSpace(ch_2))
+                    {
+                        finalName += ch;
+                    }
+                    else if (counter + 2 != lengthArray && flag)
+                    {
+                        if (Char.IsWhiteSpace(ch))
+                        {
+                            finalName += ch;
+                        }
+                    }
+                    else if (!flag)
+                        flag = true;
+                }
+            }
+        }
+        else if (!Char.IsWhiteSpace(ch))
+        {
+            finalName += ch;
+        }
+        counter++;
+    }
+    return finalName; 
+}
