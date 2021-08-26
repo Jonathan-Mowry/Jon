@@ -1,10 +1,12 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // This fuction removes spaces before and after sentences while leaving spaces between words //
 ///////////////////////////////////////////////////////////////////////////////////////////////
-private string spaceChecker()
+//string name The word(s) you wish to remove spaces from
+//return string The word stripped of extra spaces
+private string SpaceChecker(string name)
 {
-    //use 'name' as the string you want to remove extra spaces | finalName is used for the final sentence
-    string name = "", finalName = "";
+    //used for the final sentence
+    string finalName = "";
 
     //nameBroken breaks the sentence into an array
     char[] nameBroken = name.ToCharArray();
